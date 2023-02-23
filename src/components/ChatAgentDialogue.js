@@ -1,17 +1,17 @@
 export default [
     [
         {
-            title: "Hello there! I am the First Holiday Chat Agent! I am here to help you pick the perfect holiday! Lets start with your name, please enter it in the box to the right.",
+            title: "Hello, I am the First Holiday chat agent, I am here to help you pick the perfect holiday! Lets start with your name, please enter it in the box below.",
         }
     ],
     [
         {
-            title: "From the options below please select a continent, location or climate you may want to visit! Or type in the search box below a prompt to filter to a possible holiday. This will help to narrow down your search!",
+            title: "So I can help you find your perfect holiday, choose from the quick-links below. This will help me to narrow down what you are looking for. Alternatively, if you know what you are after, you can use the search box.",
         }
     ],
     [
         {
-            title: "Here are the holidays we have availble based on your choices!",
+            title: "Here are the holidays I have available based on your choices...",
         }
     ]
 ]

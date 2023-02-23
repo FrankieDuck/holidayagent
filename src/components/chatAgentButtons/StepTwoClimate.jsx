@@ -42,6 +42,7 @@ export default function StepTwoClimate() {
       <Button variant="contained" onClick={() => setTempName("cold")} >Cold <AcUnitIcon/> </Button>
     </div>
         <MaterialTable 
+        style={{ backgroundColor: "antiquewhite",  boxShadow: "3px 3px #6a4444"}}
         title="Holidays"
         data={data}
         columns={columns}

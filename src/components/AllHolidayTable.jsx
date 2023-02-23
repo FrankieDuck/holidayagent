@@ -6,7 +6,6 @@ import styles from "../styles";
 
 export default function AllHolidayTable() {
   const [data, setData] = useState([])
-  const [searchPrompt, setSearchPrompt] = useState("")
 
   const columns = [
     { title: "Country", field: "attributes.country" },
@@ -40,9 +39,9 @@ export default function AllHolidayTable() {
       <div style={{ paddingTop: "20px" }}>
         <MaterialTable
           title="Holidays"
+          style={{ backgroundColor: "antiquewhite",  boxShadow: "3px 3px #6a4444"}}
           data={data}
           columns={columns}
-          options={{ searchText: `${searchPrompt}` }}
         />
       </div>
     </div>

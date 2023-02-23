@@ -16,7 +16,7 @@ export default function DropDownLocation() {
   const [context, setContext] = useContext(Context)
 
   return (
-    <Paper sx={{ width: 320, maxWidth: '100%' }}>
+    <Paper sx={{ width: 320, maxWidth: '100%', boxShadow: "3px 3px #6a4444" }}>
         <h1 style={styles.dropDownTitlePadding}>Location</h1>
         <Divider />
       <MenuList>

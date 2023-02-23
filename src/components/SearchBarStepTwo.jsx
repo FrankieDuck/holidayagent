@@ -12,7 +12,6 @@ export default function SearchBarStepTwo() {
 
   return (
     <div>
-       <label for="filter">Prompt: </label>
        <input style={{ height: "30px", borderRadius: "4px"}} variant="text" onChange={(e) => setPrompt(e.target.value)}/>
     </div>
   )

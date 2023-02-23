@@ -44,6 +44,7 @@ export default function StepTwoContinents() {
     <Button variant="contained" onClick={() => setContName("continent-arctic")}>Arctic</Button>
     </div>
         <MaterialTable 
+        style={{ backgroundColor: "antiquewhite",  boxShadow: "3px 3px #6a4444"}}
         title="Holidays"
         data={data}
         columns={columns}

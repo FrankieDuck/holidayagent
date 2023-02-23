@@ -12,7 +12,7 @@ const styles = {
     buttonsNavBar: {
         textTransform: "capitalize",
         textDecoration: "underline",
-        backgroundColor: "#ff5c10",
+        backgroundColor: "#419D8D",
     },
     headerWidth: {
         backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
@@ -32,7 +32,8 @@ const styles = {
         display: "flex",
         padding: "10px",
         gap: "10px",
-        justifyContent: "center"
+        justifyContent: "center",
+        paddingRight: "5px",
     },
     centerItem: {
         display: "flex",
@@ -57,11 +58,19 @@ const styles = {
         padding: "20px 15px",
         backgroundImage: "linear-gradient(to right, #ff5c10, #edeb4a)",
         paddingTop: "20px",
-        borderRadius: "10px"
+        borderRadius: "10px",
+        minHeight: "400px"
     },
     chatAgentImage: {
         height: "220px",
          width: "220px"
+    },
+    chatAgentImageOne: {
+        height: "320px",
+         width: "320px",
+         paddingLeft: "100px",
+         position: "absolute",
+         top: "315px",
     },
     linkRadius: {
         width: "60px",
@@ -69,12 +78,13 @@ const styles = {
     },
     textAlign: {
         textAlign: "center",
+        lineHeight: "1.6",
+        fontSize: "28px"
     },
     footer: {  
         bottom: "-300px",
         color: "#d77a57",
         backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
-        opacity: "0.6",
         left: "0",
         position: "relative",
         minWidth: "100%",

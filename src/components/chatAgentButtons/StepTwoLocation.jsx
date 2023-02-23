@@ -40,12 +40,13 @@ export default function StepTwoLocation() {
 
   return (
     <div>
-          <div style={styles.formStepOne}>
+      <div style={styles.formStepOne}>
       <Button variant="contained" onClick={() => setlocationName("mountain")} >Mountains <LandscapeIcon/> </Button>
       <Button variant="contained" onClick={() => setlocationName("city")} >City <LocationCityIcon/> </Button>
       <Button variant="contained" onClick={() => setlocationName("sea")} >Sea <BeachAccessIcon/> </Button>
     </div>
         <MaterialTable 
+        style={{ backgroundColor: "antiquewhite",  boxShadow: "3px 3px #6a4444"}}
         title="Holidays"
         data={data}
         columns={columns}

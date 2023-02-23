@@ -37,7 +37,7 @@ export default function ClimateTable() {
 
   return (
         <MaterialTable 
-        style={{ marginTop: "20px"}}
+        style={{ marginTop: "20px", backgroundColor: "antiquewhite",  boxShadow: "3px 3px #6a4444"}}
         title="Holidays"
         data={data}
         columns={columns}        

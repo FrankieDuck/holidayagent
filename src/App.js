@@ -6,6 +6,7 @@ import Continents from "./pages/Continents";
 import Location from "./pages/Location";
 import AllHolidayTable from "./components/AllHolidayTable";
 import Footer from "./components/Footer";
+import BottomBanner from "./components/BottomBanner";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -25,6 +26,7 @@ function App() {
       <br/>
     </div>
     <Footer />
+    <BottomBanner />
     </Router>
   );
 }
