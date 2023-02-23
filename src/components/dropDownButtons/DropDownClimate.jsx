@@ -9,7 +9,9 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import ClimateTable from '../fixedTables/ClimateTable'
+import styles from '../../styles'
 import { Context } from '../../Context'
+import { Divider } from '@mui/material'
 
 
 export default function DropDownClimate() {
@@ -18,9 +20,9 @@ const [context, setContext] = useContext(Context)
   return (
     <>
     <Paper sx={{ width: 320, maxWidth: '100%' }}>
-        <h1>Climate</h1>
+        <h1 style={styles.dropDownTitlePadding}>Climate</h1>
+        <Divider/>
       <MenuList>
-
         <MenuItem onClick={() => setContext("temp-hot")}>
           <ListItemIcon >
             <WbSunnyIcon fontSize="small"/>

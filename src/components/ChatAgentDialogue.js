@@ -6,7 +6,7 @@ export default [
     ],
     [
         {
-            title: "From the options below please select a continent, location or climate you may want to visit! Or, type in the search box below a prompt to filter to a possible holiday. This will help to narrow down your search!",
+            title: "From the options below please select a continent, location or climate you may want to visit! Or type in the search box below a prompt to filter to a possible holiday. This will help to narrow down your search!",
         }
     ],
     [

@@ -9,13 +9,16 @@ import LandscapeIcon from '@mui/icons-material/Landscape';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import { Context } from '../../Context'
+import styles from '../../styles'
+import { Divider } from '@mui/material'
 
 export default function DropDownLocation() {
   const [context, setContext] = useContext(Context)
 
   return (
     <Paper sx={{ width: 320, maxWidth: '100%' }}>
-        <h1>Location</h1>
+        <h1 style={styles.dropDownTitlePadding}>Location</h1>
+        <Divider />
       <MenuList>
         <MenuItem onClick={() => setContext("location-mountain")}>
           <ListItemIcon>

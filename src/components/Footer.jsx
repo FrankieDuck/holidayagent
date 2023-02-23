@@ -3,8 +3,8 @@ import styles from '../styles'
 
 export default function Footer() {
   return (
-    <div>
-        <h1>Footer</h1>
+    <div style={styles.footer}>
+        <img src="footer.png" style={styles.footerIcons} />
     </div>
   )
 }

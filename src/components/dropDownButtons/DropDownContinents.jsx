@@ -7,14 +7,16 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import Typography from '@mui/material/Typography'
 import { GiAfrica, GiFrance,GiSouthAmerica, GiAustralia, GiAntarctica, GiJapan, GiIceberg } from 'react-icons/gi';
 import { Context } from '../../Context'
+import styles from '../../styles'
+import { Divider } from '@mui/material'
 
 export default function DropDownContinents() {
   const [context, setContext] = useContext(Context)
 
   return (
     <Paper sx={{ width: 320, maxWidth: '100%' }}>
-        <h1>Continents</h1>
-
+        <h1 style={styles.dropDownTitlePadding}>Continents</h1>
+        <Divider />
       <MenuList>
         <MenuItem onClick={() => setContext("continent-europe")}>
           <ListItemIcon>

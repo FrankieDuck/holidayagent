@@ -9,7 +9,6 @@ import styles from '../styles';
 import ClimateTable from '../components/fixedTables/ClimateTable';
 import { Context } from '../Context';
 import SearchBarStepTwo from '../components/SearchBarStepTwo';
-import Footer from '../components/Footer';
 
 export default function Home() {
   const [context, setContext] = useState("")
@@ -49,80 +48,83 @@ export default function Home() {
 
   const toStepThree = () => {
     setActive("ThirdCard")
-  }  
+  }
 
   return (
     <>
-    <div style={styles.card}>
-      <Context.Provider value={[ context, setContext]}>
-        <nav style={{paddingBottom: "20px", display: "flex", gap: "15px",}}>
-          <Button style={{ backgroundColor: activeFirstButton ? "coral" : "green"}} variant="contained" onClick={() => {setActive("FirstCard");  setActiveFirstButton(!activeFirstButton); toggleOneButton() }}>Step One</Button>
-          <Button style={{ backgroundColor: activeSecondButton ? "coral" : "green"}} variant="contained" onClick={() => {setActive("SecondCard"); setActiveSecondButton(!activeSecondButton); toggleTwoButton()}}>Step Two</Button>
-          <Button style={{ backgroundColor: activeThirdButton ? "coral" : "green"}} variant="contained" onClick={() => {setActive("ThirdCard");  setActiveThirdButton(!activeThirdButton); toggleThreeButton()}}>Step Three</Button>
-        </nav>
-      <div>
-      {active === "FirstCard" && 
-      <>
-      <div style={{display: "flex", gap: "40px"}}>
-      <img src="holidayChatAgent.png" style={styles.chatAgentImage} />
-      <Card data={ChatAgentDialogue} cardIndex={0} />
-      
-      <div style={styles.formStepOne}>
-             <label for="fname" style={{fontSize: "22px"}}>Name: </label>
-             <input style={{ height: "30px", borderRadius: "4px"}} variant="text" name='fname' onChange={(e) => setName(e.target.value)}/>
-             <Button style={{ height: "30px"}} variant="contained" onClick={() => toStepTwo()}>Submit</Button>
-        </div>
-        </div>
-      </>
-      }
+      <div style={styles.card}>
+        <Context.Provider value={[context, setContext]}>
+          <nav style={{ paddingBottom: "20px", display: "flex", gap: "15px", }}>
+            <Button style={{ textTransform: "capitalize", backgroundColor: activeFirstButton ? "coral" : "green" }} variant="contained" onClick={() => { setActive("FirstCard"); setActiveFirstButton(!activeFirstButton); toggleOneButton() }}>Step One</Button>
+            <Button style={{ textTransform: "capitalize", backgroundColor: activeSecondButton ? "coral" : "green" }} variant="contained" onClick={() => { setActive("SecondCard"); setActiveSecondButton(!activeSecondButton); toggleTwoButton() }}>Step Two</Button>
+            <Button style={{ textTransform: "capitalize", backgroundColor: activeThirdButton ? "coral" : "green" }} variant="contained" onClick={() => { setActive("ThirdCard"); setActiveThirdButton(!activeThirdButton); toggleThreeButton() }}>Step Three</Button>
+          </nav>
+          <div>
+            {active === "FirstCard" &&
+              <>
+                <div style={{ display: "flex", gap: "40px" }}>
+                  <img src="holidayChatAgent.png" style={styles.chatAgentImage} />
+                  <Card data={ChatAgentDialogue} cardIndex={0} />
+                  <div style={styles.formStepOne}>
+                    <label for="fname" style={{ fontSize: "22px" }}>Name: </label>
+                    <input style={{ height: "30px", borderRadius: "4px" }} variant="text" name='fname' onChange={(e) => setName(e.target.value)} />
+                    <Button style={{ height: "30px" }} variant="contained" onClick={() => toStepTwo()}>Submit</Button>
+                  </div>
+                </div>
+              </>
+            }
 
-      {active === "SecondCard" &&  
-      <>
-      <div style={{display: "flex"}}>
-      <img src="holidayChatAgent.png" style={{ height: "220px", width: "220px" }} />
-      <h2>Hello {name}! </h2>
-      <Card data={ChatAgentDialogue} cardIndex={1} />
-      </div>
-      <div style={{display: "flex", justifyContent: "space-evenly" }}>
-      <div style={{ width: 215 }} onClick={() => toStepThree()}>
-      </div>
-      <div style={{ width: 215 }} onClick={() => toStepThree()}>
-      <DropDownClimate />
-      </div>
-      <div style={{ width: 215 }} onClick={() => toStepThree()}>
-      <DropDownLocation />
-      </div>
-      <div onClick={() => toStepThree()}>
-      <DropDownContinents/>
-      </div>
-      <div>
-      <SearchBarStepTwo />
-      <Button style={{ height: "30 px"}} variant="contained" onClick={() => toStepThree()}>Submit</Button>
-      </div>    
-        </div>
-      </>
-      }
+            {active === "SecondCard" &&
+              <>
+                <div style={{ display: "flex", justifyContent: "space-evenly"}}>
+                  <img src="holidayChatAgent.png" style={{ height: "220px", width: "220px", position: "absolute", left: "20px" }} />
+                  <div style={{ width: "1300px"}}>
+                  <h2> Hello {name}! </h2>
+                  <Card data={ChatAgentDialogue} cardIndex={1} />
+                  </div>
+                </div>
 
-      {active === "ThirdCard" && 
-      <>
-      <div style={{display: "flex"}}>
-      <img src="holidayChatAgent.png" style={{ height: "220px", width: "220px" }} />
-      <h2>Ok {name}!</h2>
-      <Card data={ChatAgentDialogue} cardIndex={2} />
-      </div>
+                <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                  <div style={{ width: 215 }} onClick={() => toStepThree()}>
+                  </div>
 
-      <div>
-      <ClimateTable />
-      </div>
+                  <div onClick={() => toStepThree()}>
+                    <DropDownContinents />
+                  </div>
 
-      </>
-      }
+                  <div style={{ width: 215 }} onClick={() => toStepThree()}>
+                    <DropDownClimate />
+                  </div>
+
+                  <div style={{ width: 215 }} onClick={() => toStepThree()}>
+                    <DropDownLocation />
+                  </div>
+                  <div>
+
+                    <SearchBarStepTwo />
+                    <Button style={{ height: "30 px" }} variant="contained" onClick={() => toStepThree()}>Submit</Button>
+                  </div>
+                </div>
+              </>
+            }
+
+            {active === "ThirdCard" &&
+              <>
+                <div style={{ display: "flex" }}>
+                  <img src="holidayChatAgent.png" style={{ height: "220px", width: "220px" }} />
+                  <h2>Ok {name}!</h2>
+                  <Card data={ChatAgentDialogue} cardIndex={2} />
+                </div>
+
+                <div>
+                  <ClimateTable />
+                </div>
+
+              </>
+            }
+          </div>
+        </Context.Provider>
       </div>
-      
-      </Context.Provider>
-      
-    </div>
-    <Footer />
     </>
   )
 }

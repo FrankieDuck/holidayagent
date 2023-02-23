@@ -3,10 +3,16 @@ const styles = {
         height: "300px",
         width: "300px",
     },
-    buttonsNavBar: {
+    navBar: {
         display: "flex",
         justifyContent: "space-evenly",
-        paddingTop: "10px"
+        paddingTop: "10px",
+
+    },
+    buttonsNavBar: {
+        textTransform: "capitalize",
+        textDecoration: "underline",
+        backgroundColor: "#ff5c10",
     },
     headerWidth: {
         backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
@@ -57,14 +63,33 @@ const styles = {
         height: "220px",
          width: "220px"
     },
-    footer: {  
-        position: "fixed",
-        left: 0,
-        bottom: 0,
-        width: "100%",
-        backgroundColor: "red",
-        color: "white",
+    linkRadius: {
+        width: "60px",
+        height: "60px"
+    },
+    textAlign: {
         textAlign: "center",
+    },
+    footer: {  
+        bottom: "-300px",
+        color: "#d77a57",
+        backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
+        opacity: "0.6",
+        left: "0",
+        position: "relative",
+        minWidth: "100%",
+        height: "10%",
+        display: "flex",
+        justifyContent: "flex-end",
+        borderRadius: "4px",
+        padding: "5px"
+    },
+    dropDownTitlePadding: {
+        paddingLeft: "10px"
+    },
+    footerIcons: {
+        width: "12%",
+        height: "15%",
     }
 
 }

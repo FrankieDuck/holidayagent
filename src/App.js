@@ -5,6 +5,7 @@ import Climate from "./pages/Climate";
 import Continents from "./pages/Continents";
 import Location from "./pages/Location";
 import AllHolidayTable from "./components/AllHolidayTable";
+import Footer from "./components/Footer";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -23,6 +24,7 @@ function App() {
       </Routes>
       <br/>
     </div>
+    <Footer />
     </Router>
   );
 }
