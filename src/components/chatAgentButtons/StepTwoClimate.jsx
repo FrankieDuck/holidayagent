@@ -35,7 +35,7 @@ export default function StepTwoClimate() {
      }, [tempName])
 
   return (
-    <div style={{paddingTop: "80px"}}>
+    <div>
           <div style={styles.formStepOne}>
       <Button variant="contained" onClick={() => setTempName("hot")} >Hot <WbSunnyIcon/> </Button>
       <Button variant="contained" onClick={() => setTempName("mild")} >Mild <ThermostatIcon/> </Button>

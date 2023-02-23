@@ -7,23 +7,23 @@ const TopNav = () => {
 
   return (
     <div style={styles.headerWidth}>
-            <div style={styles.headerIcon} >
-            <Link to="/">
-            <img src="firstholidayltd.logo.png" style={{ height: "220px", width: "220px"}} /> 
-            </Link>
-              <Link to="/climate">
-              <Button variant="contained">Climate</Button>
-              </Link> 
-              <Link to="/continents">
-              <Button variant="contained">Continents</Button>
-              </Link> 
-              <Link to="/location">
-              <Button variant="contained">Location</Button>
-              </Link> 
-              <Link to="/allholidays">
-              <Button variant="contained">All Holidays</Button>
-              </Link> 
-            </div>
+      <div style={styles.buttonsNavBar} >
+        <Link to="/climate">
+          <Button variant="contained" className='Button'>Climate</Button>
+        </Link>
+        <Link to="/continents">
+          <Button variant="contained" className='Button'>Continents</Button>
+        </Link>
+        <Link to="/">
+          <img src="firstholidayltd.logo.png" style={styles.headerIcon} />
+        </Link>
+        <Link to="/location">
+          <Button variant="contained" className='Button'>Location</Button>
+        </Link>
+        <Link to="/allholidays">
+          <Button variant="contained" className='Button'>All Holidays</Button>
+        </Link>
+      </div>
     </div>
 
   );

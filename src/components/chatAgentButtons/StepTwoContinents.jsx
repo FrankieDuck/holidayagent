@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from '@material-table/core';
 import styles from "../../styles";
 import { Button } from "@mui/material";
-import LandscapeIcon from '@mui/icons-material/Landscape';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 
-export default function StepTwoLocation() {
+
+export default function StepTwoContinents() {
     const [data, setData] = useState([])
-    const [locationName, setlocationName] = useState("")
+    const [contName, setContName] = useState("")
 
-    
 
     const columns = [
         {title: "Country", field: "attributes.country"},
@@ -21,29 +18,30 @@ export default function StepTwoLocation() {
     ]
 
     useEffect(() => {
-        const url = `http://localhost:1337/api/location-${locationName}?populate=*`
+        const url = `http://localhost:1337/api/${contName}?populate=*`
         const fetchData = async() => {
         try {
            const response = await fetch(url)
            const json = await response.json()
            const returnedData = json.data.attributes.holidays.data
-           console.log(returnedData)
            setData(returnedData)
         } catch (error) {
            console.log("error: ", error)
         }
        };
        fetchData()
-     }, [locationName])
-
-    // console.log(returnedData)
+     }, [contName])
 
   return (
     <div>
-          <div style={styles.formStepOne}>
-      <Button variant="contained" onClick={() => setlocationName("mountain")} >Mountains <LandscapeIcon/> </Button>
-      <Button variant="contained" onClick={() => setlocationName("city")} >City <LocationCityIcon/> </Button>
-      <Button variant="contained" onClick={() => setlocationName("sea")} >Sea <BeachAccessIcon/> </Button>
+    <div style={styles.formStepOne}>
+    <Button variant="contained" onClick={() => setContName("continent-europe")}>Europe</Button>
+    <Button variant="contained" onClick={() => setContName("continent-africa")}>Africa</Button>
+    <Button variant="contained" onClick={() => setContName("continent-north-america")}>North America</Button>
+    <Button variant="contained" onClick={() => setContName("continent-australia")}>Australia</Button>
+    <Button variant="contained" onClick={() => setContName("continent-asia")}>Asia</Button>
+    <Button variant="contained" onClick={() => setContName("continent-antartica")}>Antartica</Button>
+    <Button variant="contained" onClick={() => setContName("continent-arctic")}>Arctic</Button>
     </div>
         <MaterialTable 
         title="Holidays"

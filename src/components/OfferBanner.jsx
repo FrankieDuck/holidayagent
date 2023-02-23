@@ -15,9 +15,6 @@ function PromoBanner() {
         <h3>
           Keep an eye out for our Easter Holiday deals coming shortly!
         </h3>
-          <Button onClick={() => setTimeout(false)} variant="outline-success">
-            Thanks!
-          </Button>
       </Alert>
   );
 }

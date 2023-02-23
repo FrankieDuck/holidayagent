@@ -1,18 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import Card from '../components/Card'
 import Button from '@mui/material/Button';
 import ChatAgentDialogue from '../components/ChatAgentDialogue'
 import DropDownClimate from '../components/dropDownButtons/DropDownClimate';
 import DropDownLocation from '../components/dropDownButtons/DropDownLocation';
+import DropDownContinents from '../components/dropDownButtons/DropDownContinents';
 import styles from '../styles';
-import StepTwoClimate from '../components/chatAgentButtons/StepTwoClimate'
 import ClimateTable from '../components/fixedTables/ClimateTable';
-
+import { Context } from '../Context';
+import SearchBarStepTwo from '../components/SearchBarStepTwo';
+import Footer from '../components/Footer';
 
 export default function Home() {
+  const [context, setContext] = useState("")
   const [active, setActive] = useState("FirstCard")
   const [name, setName] = useState("")
   const [prompt, setPrompt] = useState("")
+  const [activeFirstButton, setActiveFirstButton] = useState(true)
+  const [activeSecondButton, setActiveSecondButton] = useState(true)
+  const [activeThirdButton, setActiveThirdButton] = useState(true)
+
+  const toggleOneButton = () => {
+    if (activeFirstButton === true || active === "FirstCard") {
+      setActiveSecondButton(!false)
+      setActiveThirdButton(!false)
+    }
+  }
+
+  const toggleTwoButton = () => {
+    if (activeSecondButton === true || active === "SecondCard") {
+      setActiveFirstButton(!false)
+      setActiveThirdButton(!false)
+    }
+  }
+
+  const toggleThreeButton = () => {
+    if (activeThirdButton === true || active === "ThirdCard") {
+      setActiveFirstButton(!false)
+      setActiveSecondButton(!false)
+    }
+  }
 
   console.log(prompt)
 
@@ -22,21 +49,22 @@ export default function Home() {
 
   const toStepThree = () => {
     setActive("ThirdCard")
-  }
+  }  
 
-  console.log(active)
   return (
+    <>
     <div style={styles.card}>
-        <nav style={{paddingBottom: "20px"}}>
-          <Button variant="contained" onClick={() => setActive("FirstCard")}>Step One</Button>
-          <Button variant="contained" onClick={() => setActive("SecondCard")}>Step Two</Button>
-          <Button variant="contained" onClick={() => setActive("ThirdCard")}>Step Three</Button>
+      <Context.Provider value={[ context, setContext]}>
+        <nav style={{paddingBottom: "20px", display: "flex", gap: "15px",}}>
+          <Button style={{ backgroundColor: activeFirstButton ? "coral" : "green"}} variant="contained" onClick={() => {setActive("FirstCard");  setActiveFirstButton(!activeFirstButton); toggleOneButton() }}>Step One</Button>
+          <Button style={{ backgroundColor: activeSecondButton ? "coral" : "green"}} variant="contained" onClick={() => {setActive("SecondCard"); setActiveSecondButton(!activeSecondButton); toggleTwoButton()}}>Step Two</Button>
+          <Button style={{ backgroundColor: activeThirdButton ? "coral" : "green"}} variant="contained" onClick={() => {setActive("ThirdCard");  setActiveThirdButton(!activeThirdButton); toggleThreeButton()}}>Step Three</Button>
         </nav>
       <div>
       {active === "FirstCard" && 
       <>
-      <div style={{display: "flex"}}>
-      <img src="holidayChatAgent.png" style={{ height: "220px", width: "220px" }} />
+      <div style={{display: "flex", gap: "40px"}}>
+      <img src="holidayChatAgent.png" style={styles.chatAgentImage} />
       <Card data={ChatAgentDialogue} cardIndex={0} />
       
       <div style={styles.formStepOne}>
@@ -52,7 +80,7 @@ export default function Home() {
       <>
       <div style={{display: "flex"}}>
       <img src="holidayChatAgent.png" style={{ height: "220px", width: "220px" }} />
-      <h2>Hello {name}!</h2>
+      <h2>Hello {name}! </h2>
       <Card data={ChatAgentDialogue} cardIndex={1} />
       </div>
       <div style={{display: "flex", justifyContent: "space-evenly" }}>
@@ -64,11 +92,13 @@ export default function Home() {
       <div style={{ width: 215 }} onClick={() => toStepThree()}>
       <DropDownLocation />
       </div>
-      <div style={styles.formStepOne}>
-             <label for="filter">Prompt: </label>
-             <input style={{ height: "30px", borderRadius: "4px"}} variant="text" name='filter' onChange={(e) => setPrompt(e.target.value)}/>
-             <Button style={{ height: "30px"}} variant="contained" onClick={() => toStepThree()}>Submit</Button>
-        </div>
+      <div onClick={() => toStepThree()}>
+      <DropDownContinents/>
+      </div>
+      <div>
+      <SearchBarStepTwo />
+      <Button style={{ height: "30 px"}} variant="contained" onClick={() => toStepThree()}>Submit</Button>
+      </div>    
         </div>
       </>
       }
@@ -80,12 +110,19 @@ export default function Home() {
       <h2>Ok {name}!</h2>
       <Card data={ChatAgentDialogue} cardIndex={2} />
       </div>
+
       <div>
-      <ClimateTable  />
+      <ClimateTable />
       </div>
+
       </>
       }
       </div>
+      
+      </Context.Provider>
+      
     </div>
+    <Footer />
+    </>
   )
 }

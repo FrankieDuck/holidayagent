@@ -1,7 +1,7 @@
 export default [
     [
         {
-            title: "Hello there! I am the First Holiday Chat Agent! I am here to help you pick the perfect holiday! Lets start with your name, please enter it below!",
+            title: "Hello there! I am the First Holiday Chat Agent! I am here to help you pick the perfect holiday! Lets start with your name, please enter it in the box to the right.",
         }
     ],
     [

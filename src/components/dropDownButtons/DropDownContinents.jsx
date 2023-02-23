@@ -1,37 +1,75 @@
-import * as React from 'react'
+import React, { useContext } from 'react'
 import Paper from '@mui/material/Paper'
 import MenuList from '@mui/material/MenuList'
 import MenuItem from '@mui/material/MenuItem'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Typography from '@mui/material/Typography'
-import ContentCut from '@mui/icons-material/ContentCut'
-import ContentCopy from '@mui/icons-material/ContentCopy'
-import ContentPaste from '@mui/icons-material/ContentPaste'
+import { GiAfrica, GiFrance,GiSouthAmerica, GiAustralia, GiAntarctica, GiJapan, GiIceberg } from 'react-icons/gi';
+import { Context } from '../../Context'
 
 export default function DropDownContinents() {
+  const [context, setContext] = useContext(Context)
+
   return (
     <Paper sx={{ width: 320, maxWidth: '100%' }}>
+        <h1>Continents</h1>
+
       <MenuList>
-        <MenuItem>
+        <MenuItem onClick={() => setContext("continent-europe")}>
           <ListItemIcon>
-            <ContentCut fontSize="small" />
+          <GiFrance />
           </ListItemIcon>
-          <ListItemText>Cut</ListItemText>
+          <ListItemText>Europe</ListItemText>
           <Typography variant="body2" color="text.secondary"></Typography>
         </MenuItem>
-        <MenuItem>
+
+       
+        <MenuItem onClick={() => setContext("continent-africa")}>
           <ListItemIcon>
-            <ContentCopy fontSize="small" />
+          <GiAfrica />
           </ListItemIcon>
-          <ListItemText>Copy</ListItemText>
+          <ListItemText>Africa</ListItemText>
           <Typography variant="body2" color="text.secondary"></Typography>
         </MenuItem>
-        <MenuItem>
+
+        <MenuItem onClick={() => setContext("continent-north-america")}>
           <ListItemIcon>
-            <ContentPaste fontSize="small" />
+          <GiSouthAmerica />
           </ListItemIcon>
-          <ListItemText>Paste</ListItemText>
+          <ListItemText>North America</ListItemText>
+          <Typography variant="body2" color="text.secondary"></Typography>
+        </MenuItem>
+
+        <MenuItem onClick={() => setContext("continent-australia")}>
+          <ListItemIcon>
+          <GiAustralia />
+          </ListItemIcon>
+          <ListItemText>Australia</ListItemText>
+          <Typography variant="body2" color="text.secondary"></Typography>
+        </MenuItem>
+
+        <MenuItem onClick={() => setContext("continent-asia")}>
+          <ListItemIcon>
+          <GiJapan />
+          </ListItemIcon>
+          <ListItemText>Asia</ListItemText>
+          <Typography variant="body2" color="text.secondary"></Typography>
+        </MenuItem>
+
+        <MenuItem onClick={() => setContext("continent-antartica")}>
+          <ListItemIcon>
+          <GiAntarctica />
+          </ListItemIcon>
+          <ListItemText>Antartica</ListItemText>
+          <Typography variant="body2" color="text.secondary"></Typography>
+        </MenuItem>
+
+        <MenuItem onClick={() => setContext("continent-arctic")}>
+          <ListItemIcon>
+          <GiIceberg />
+          </ListItemIcon>
+          <ListItemText>Arctic</ListItemText>
           <Typography variant="body2" color="text.secondary"></Typography>
         </MenuItem>
       </MenuList>

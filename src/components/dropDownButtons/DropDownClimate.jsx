@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Paper from '@mui/material/Paper'
 import MenuList from '@mui/material/MenuList'
 import MenuItem from '@mui/material/MenuItem'
@@ -9,9 +9,11 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import ClimateTable from '../fixedTables/ClimateTable'
+import { Context } from '../../Context'
+
 
 export default function DropDownClimate() {
-const [climateValue, setClimateValue] = useState("")
+const [context, setContext] = useContext(Context)
 
   return (
     <>
@@ -19,7 +21,7 @@ const [climateValue, setClimateValue] = useState("")
         <h1>Climate</h1>
       <MenuList>
 
-        <MenuItem onClick={() => setClimateValue("hot")}>
+        <MenuItem onClick={() => setContext("temp-hot")}>
           <ListItemIcon >
             <WbSunnyIcon fontSize="small"/>
           </ListItemIcon>
@@ -27,7 +29,7 @@ const [climateValue, setClimateValue] = useState("")
           <Typography variant="body2" color="text.secondary"></Typography>
         </MenuItem>
 
-        <MenuItem onClick={() => setClimateValue("mild")}>
+        <MenuItem onClick={() => setContext("temp-mild")}>
           <ListItemIcon>
             <ThermostatIcon fontSize="small" />
           </ListItemIcon>
@@ -35,7 +37,7 @@ const [climateValue, setClimateValue] = useState("")
           <Typography variant="body2" color="text.secondary"></Typography>
         </MenuItem>
 
-        <MenuItem onClick={() => setClimateValue("cold")}>
+        <MenuItem onClick={() => setContext("temp-cold")}>
           <ListItemIcon>
             <AcUnitIcon fontSize="small" />
           </ListItemIcon>
@@ -44,8 +46,8 @@ const [climateValue, setClimateValue] = useState("")
         </MenuItem>
       </MenuList>
     </Paper>
+
     <div>
-    <ClimateTable climateValue={climateValue}/>
     </div>
     </>
   )

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import MaterialTable from '@material-table/core';
+import { Context } from '../../Context'
+import { ClimateVarContext } from "../../pages/Home";
 import styles from "../../styles";
 import { Button } from "@mui/material";
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 
-export default function ClimateTable({climateValue}) {
-    const [data, setData] = useState([])
-    // const [tempName, setTempName] = useState("")
-
+export default function ClimateTable() {
+   const [context, setContext] = useContext(Context)
+   const [data, setData] = useState([])
 
     const columns = [
         {title: "Country", field: "attributes.country"},
@@ -20,7 +21,7 @@ export default function ClimateTable({climateValue}) {
     ]
 
     useEffect(() => {
-        const url = `http://localhost:1337/api/temp-${climateValue}?populate=*`
+        const url = `http://localhost:1337/api/${context}?populate=*`
         const fetchData = async() => {
         try {
            const response = await fetch(url)
@@ -32,14 +33,14 @@ export default function ClimateTable({climateValue}) {
         }
        };
        fetchData()
-     }, [climateValue])
+     }, [])
 
   return (
         <MaterialTable 
         style={{ marginTop: "20px"}}
         title="Holidays"
         data={data}
-        columns={columns}
+        columns={columns}        
         />
   );
 }
