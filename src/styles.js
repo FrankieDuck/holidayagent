@@ -2,11 +2,17 @@ const styles = {
     headerIcon: {
         height: "300px",
         width: "300px",
+        position: "absolute",
+        top: "5px",
+        left: "793px"
     },
     navBar: {
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "flex-end",
         paddingTop: "10px",
+        gap: "63px",
+        alignItems: "baseline",
+        paddingRight: "56px"
 
     },
     buttonsNavBar: {

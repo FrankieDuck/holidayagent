@@ -72,7 +72,7 @@ export default function Home() {
                   <Card data={ChatAgentDialogue} cardIndex={0} />
                   <div style={styles.formStepOne}>
                     <input style={{ height: "30px", borderRadius: "4px" }} variant="text" name='fname' onChange={(e) => setName(e.target.value)} />
-                    <Button style={{ height: "30px" }} variant="contained" onClick={() => toStepTwo()}>Submit</Button>
+                    <Button style={{ height: "30px", backgroundColor: "green" }} variant="contained" onClick={() => toStepTwo()}>Submit</Button>
                     </div>
                     </div>
                   </div> 
@@ -89,7 +89,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                <div style={{ display: "flex", justifyContent: "space-evenly", paddingRight: "245px" }}>
                   <div style={{ width: 215 }} onClick={() => toStepThree()}>
                   </div>
 
@@ -104,10 +104,8 @@ export default function Home() {
                   <div style={{ width: 215 }} onClick={() => toStepThree()}>
                     <DropDownLocation />
                   </div>
-                  <div>
-
-                    <SearchBarStepTwo />
-                    <Button style={{ height: "30 px" }} variant="contained" onClick={() => toStepThree()}>Submit</Button>
+                  <div style={{marginTop: "20px"}}>
+                    <SearchBarStepTwo progressToStepThree={toStepThree} />
                   </div>
                 </div>
               </>

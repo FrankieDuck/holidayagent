@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import MaterialTable from '@material-table/core';
 import { Context } from '../../Context'
-import { ClimateVarContext } from "../../pages/Home";
-import styles from "../../styles";
-import { Button } from "@mui/material";
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import ThermostatIcon from '@mui/icons-material/Thermostat';
+
 
 export default function ClimateTable() {
    const [context, setContext] = useContext(Context)
@@ -21,6 +16,7 @@ export default function ClimateTable() {
     ]
 
     useEffect(() => {
+
         const url = `http://localhost:1337/api/${context}?populate=*`
         const fetchData = async() => {
         try {

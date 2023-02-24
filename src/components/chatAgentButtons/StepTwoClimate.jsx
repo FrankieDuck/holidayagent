@@ -37,8 +37,8 @@ export default function StepTwoClimate() {
   return (
     <div>
           <div style={styles.formStepOne}>
-      <Button variant="contained" onClick={() => setTempName("hot")} >Hot <WbSunnyIcon/> </Button>
-      <Button variant="contained" onClick={() => setTempName("mild")} >Mild <ThermostatIcon/> </Button>
+      <Button style={{ backgroundColor: "#ff5506"}} variant="contained" onClick={() => setTempName("hot")} >Hot <WbSunnyIcon/> </Button>
+      <Button style={{ backgroundColor: "#ff854d"}} variant="contained" onClick={() => setTempName("mild")} >Mild <ThermostatIcon/> </Button>
       <Button variant="contained" onClick={() => setTempName("cold")} >Cold <AcUnitIcon/> </Button>
     </div>
         <MaterialTable 
